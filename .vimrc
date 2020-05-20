@@ -11,9 +11,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
-Plugin 'mxw/vim-jsx'
-Plugin 'mattn/emmet-vim'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'HerringtonDarkholme/yats.vim'
+" Plugin 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
+" Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'moll/vim-node'
+Plugin 'marijnh/tern_for_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,8 +37,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 set number
-filetype indent on
 syntax on
+syntax enable
 set showmode
 set showcmd
 set encoding=utf-8
@@ -54,7 +60,17 @@ set noerrorbells
 set nolist
 set wildmenu
 set wildmode=longest:list,full
+set vb
+
+" let g:vim_jsx_pretty_colorful_config = 1
+" let g:vim_jsx_pretty_highlight_close_tag = 1
+
+" autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+autocmd BufNewFile,BufRead *.ts,*.tsx setlocal filetype=typescript
 
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
+nnoremap <F2> :set nonumber!<CR>
 inoremap fj <Esc>
+map J 7j
+map K 7k
